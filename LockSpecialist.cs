@@ -18,11 +18,19 @@ namespace Heist
             PercentageCut = percentage;
         }
 
+        public int TakeHomeMoney(Bank newBank)
+        {
+            int moneyToTake = newBank.CashOnHand * PercentageCut / 100;
+            Console.WriteLine($"{Name} takes home: {moneyToTake}");
+            return moneyToTake;
+
+        }
+
         public void PerformSkill(Bank newBank)
         {
             newBank.VaultScore -= SkillLevel;
             Console.WriteLine($"{Name} is cracking the vault. Decreased security score by {SkillLevel} points.");
-            if (newBank.VaultScore - SkillLevel <= 0)
+            if (newBank.VaultScore <= 0)
             {
                 Console.WriteLine($"{Name} has cracked the vaults!");
 

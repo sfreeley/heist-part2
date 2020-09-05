@@ -61,6 +61,7 @@ namespace Heist
             else
             {
                 Console.WriteLine("We're rich, baby!");
+                Console.WriteLine($"Our loot: {CashOnHand}");
             }
 
         }

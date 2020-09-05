@@ -151,31 +151,20 @@ namespace Heist
             }
         }
 
-        // static void HeistSuccess()
-        // {
-        //     if (newBank.)
-        //     {
-        //         Console.WriteLine("Sorry you're going to jail!");
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("We're rich, baby!");
-        //     }
-
-        // }
-
         static void Loot()
         {
+            int totalDishedOut = 0;
             if (!newBank.IsSecure)
             {
+
                 foreach (IRobber member in crew)
                 {
-                    Console.WriteLine($"You have {newBank.CashOnHand}");
-                    int personalLoot = newBank.CashOnHand * (member.PercentageCut / 100);
-                    Console.WriteLine($"{member.Name} gets {personalLoot}");
-                    Console.WriteLine($"You take home {newBank.CashOnHand - personalLoot}");
+                    totalDishedOut += member.TakeHomeMoney(newBank);
                 }
+
             }
+            int cashLeftForYou = newBank.CashOnHand - totalDishedOut;
+            Console.WriteLine($"You get to keep: {cashLeftForYou}");
 
         }
 

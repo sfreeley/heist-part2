@@ -21,6 +21,14 @@ namespace Heist
 
         }
 
+        public int TakeHomeMoney(Bank newBank)
+        {
+            int moneyToTake = newBank.CashOnHand * PercentageCut / 100;
+            Console.WriteLine($"{Name} takes home: {moneyToTake}");
+            return moneyToTake;
+
+        }
+
         public Hacker(string name, int skill, int percentage)
         {
             Name = name;

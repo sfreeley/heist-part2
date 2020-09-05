@@ -13,13 +13,19 @@ namespace Heist
 
         public Muscle(string name, int skill, int percentage)
         {
-
             Name = name;
             Specialty = "Muscle (Disarms guards)";
             SkillLevel = skill;
             PercentageCut = percentage;
         }
 
+        public int TakeHomeMoney(Bank newBank)
+        {
+            int moneyToTake = newBank.CashOnHand * PercentageCut / 100;
+            Console.WriteLine($"{Name} takes home: {moneyToTake}");
+            return moneyToTake;
+
+        }
         public void PerformSkill(Bank newBank)
         {
             newBank.SecurityGuardScore -= SkillLevel;
