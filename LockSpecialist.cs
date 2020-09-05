@@ -20,11 +20,12 @@ namespace Heist
 
         public void PerformSkill(Bank newBank)
         {
-            // newBank.AlarmScore - SkillLevel;
-            Console.WriteLine($"{Name} is hacking the alarm system. Decreased security score by {SkillLevel} points.");
-            if (newBank.AlarmScore - SkillLevel == 0)
+            newBank.VaultScore -= SkillLevel;
+            Console.WriteLine($"{Name} is cracking the vault. Decreased security score by {SkillLevel} points.");
+            if (newBank.VaultScore - SkillLevel <= 0)
             {
                 Console.WriteLine($"{Name} has cracked the vaults!");
+
             }
 
         }
