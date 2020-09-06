@@ -65,6 +65,8 @@ namespace Heist
                 //skill level question
                 Console.WriteLine("What is your operative's skill level from 1 to 100?");
                 string skillLevel = Console.ReadLine();
+
+                //making sure user inputs a number between 1 and 100;
                 while (int.Parse(skillLevel) < 1 || int.Parse(skillLevel) > 100)
                 {
                     Console.WriteLine("What is your operative's skill level from 1 to 100?");
@@ -76,6 +78,7 @@ namespace Heist
                 Console.WriteLine("How much of the cut will your operative demand?");
                 string percentageOfCut = Console.ReadLine();
 
+                //based on user selection of which specialty( 1, 2, or 3), it will add that type of class into the rolodex
                 switch (specialtySelection)
                 {
                     case "1":
@@ -183,7 +186,7 @@ namespace Heist
             // if the bank is not secure (ie if crew was successful)
             if (!newBank.IsSecure)
             {
-                //loop through the crew list and increment the amount dispersed to each person in the list
+                //loop through the crew list and increment the amount dispersed to each person in the list (the returned integer amount calculated by TakeHomeMoney method on each individual class)
                 foreach (IRobber member in crew)
                 {
                     totalDishedOut += member.TakeHomeMoney(newBank);
