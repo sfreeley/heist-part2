@@ -13,22 +13,21 @@ namespace Heist
         {
             newBank.AlarmScore -= SkillLevel;
             Console.WriteLine($"{Name} is disabling the alarm(s). Decreased security score by {SkillLevel} points.");
+            Console.WriteLine("---------------");
             if (newBank.AlarmScore <= 0)
             {
                 Console.WriteLine($"{Name} has disabled the alarm system!");
-
             }
-
         }
 
+        //calculating the amount of money each member will receive from heist if heist is successful
         public int TakeHomeMoney(Bank newBank)
         {
-            int moneyToTake = newBank.CashOnHand * PercentageCut / 100;
+            int moneyToTake = (newBank.CashOnHand * PercentageCut / 100);
             Console.WriteLine($"{Name} takes home: {moneyToTake}");
+            Console.WriteLine("---------------");
             return moneyToTake;
-
         }
-
         public Hacker(string name, int skill, int percentage)
         {
             Name = name;
